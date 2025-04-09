@@ -4,13 +4,13 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { Button } from "@/components/ui/button";
-import {Form} from "@/components/ui/form";
+import { Form } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import Image from "next/image";
 import Link from "next/link";
 import { toast } from "sonner";
 import FormField from "@/components/FormField";
-import {useRouter} from "next/navigation";
+import { useRouter } from "next/navigation";
 
 const authFormSchema = (type: FormType) => {
   return z.object({
@@ -63,25 +63,29 @@ const AuthForm = ({ type }: { type: FormType }) => {
             onSubmit={form.handleSubmit(onSubmit)}
             className="w-full space-y-6 mt-4 form"
           >
-            {!isSignIn && (<FormField
-                    control={form.control}
-                    name="name"
-                    label="Name"
-                    placeholder="Your Name"
-                    type="text"/>
+            {!isSignIn && (
+              <FormField
+                control={form.control}
+                name="name"
+                label="Name"
+                placeholder="Your Name"
+                type="text"
+              />
             )}
             <FormField
-                control={form.control}
-                name="email"
-                label="Email"
-                placeholder="Your email address"
-                type="email"/>
+              control={form.control}
+              name="email"
+              label="Email"
+              placeholder="Your email address"
+              type="email"
+            />
             <FormField
-                control={form.control}
-                name="password"
-                label="Password"
-                placeholder="Enter your password"
-                type="password"/>
+              control={form.control}
+              name="password"
+              label="Password"
+              placeholder="Enter your password"
+              type="password"
+            />
             <Button className="btn" type="submit">
               {isSignIn ? "Sign In" : "Create an account"}
             </Button>
